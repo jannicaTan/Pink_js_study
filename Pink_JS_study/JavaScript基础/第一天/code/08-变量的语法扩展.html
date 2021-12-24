@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        // 1. 更新变量
+        // 1. 更新变量:变量被重复赋值后以最新的赋值内容为准
         var myname = 'pink老师';
         console.log(myname);
         myname = '迪丽热巴';
@@ -25,7 +25,7 @@
         console.log(sex); // undefined
         // 3.2  不声明 不赋值 直接使用某个变量会报错滴
         // console.log(tel);
-        // 3.3 不声明直接赋值使用
+        // 3.3 不声明直接赋值使用,前面如果报错了就不执行了
         qq = 110;
         console.log(qq);
     </script>
