@@ -9,14 +9,17 @@
     <script>
         // 1. 把数字型转换为字符串型 变量.toString()
         var num = 10;
+        // var str = num.toString();
+        // console.log(str);
+        // console.log(typeof str);
         var str = num.toString();
-        console.log(str);
-        console.log(typeof str);
+        console.log(typeof str)
 
         // 2. 我们利用 String(变量)   
         console.log(String(num));
         
-        // 3. 利用 + 拼接字符串的方法实现转换效果 隐式转换
+        // !重点：隐式转换
+        // 3. 利用 + 拼接字符串的方法实现转换效果 
         console.log(num + '');
     </script>
 </head>
