@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        // 1. 前置自增和后置自增如果单独使用 效果是一样的
         var num = 10;
         num++; // num = num + 1    ++num;
-        console.log(num);
-        // 1. 前置自增和后置自增如果单独使用 效果是一样的
+        console.log(num);// 11
+        
         // 2. 后置自增 口诀：先返回原值 后自加1 
         var age = 10;
-        console.log(age++ + 10);
-        console.log(age);
+        console.log(age++ + 10); //20
+        console.log(age);// 21
     </script>
 </head>
 
