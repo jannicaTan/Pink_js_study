@@ -11,7 +11,7 @@
         var arr = ['red', 'green', 'blue'];
         console.log(arr.length);
         arr.length = 5; // 把我们数组的长度修改为了 5  里面应该有5个元素 
-        console.log(arr);
+        console.log(arr);//['red', 'green', 'blue',empty*2];
         console.log(arr[3]); // undefined
         console.log(arr[4]); // undefined
 
@@ -23,8 +23,8 @@
         console.log(arr1);
         arr1[0] = 'yellow'; // 这里是替换原来的数组元素
         console.log(arr1);
-        arr1 = '有点意思';
-        console.log(arr1); // 不要直接给 数组名赋值 否则里面的数组元素都没有了
+        arr1 = '全部修改';
+        console.log(arr1); // 全部修改 不要直接给 数组名赋值 否则里面的数组元素都没有了
     </script>
 </head>
 
