@@ -13,14 +13,14 @@
             return num1 + num2; // return 后面的代码不会被执行
             alert('我是不会被执行的哦！')
         }
-        console.log(getSum(1, 2));
+        console.log(getSum(1, 2));//3
         // 2. return 只能返回一个值
         function fn(num1, num2) {
-            return num1, num2; // 返回的结果是最后一个值
+            return num1, num2; // 返回的结果是 最后一个值
         }
-        console.log(fn(1, 2));
+        console.log(fn(1, 2));//2
 
-        // 3.  我们求任意两个数的 加减乘数结果
+        // 3.  但是可以返回一个数组
         function getResult(num1, num2) {
             return [num1 + num2, num1 - num2, num1 * num2, num1 / num2];
         }
