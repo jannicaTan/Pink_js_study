@@ -8,13 +8,19 @@
     <title>Document</title>
     <script>
         // 利用函数判断闰年
+        // function isRunYear(year) {
+        //     // 如果是闰年我们返回 true  否则 返回 false 
+        //     var flag = false;
+        //     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        //         flag = true;
+        //     }
+        //     return flag;
+        // }
         function isRunYear(year) {
-            // 如果是闰年我们返回 true  否则 返回 false 
-            var flag = false;
             if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-                flag = true;
+                return true;
             }
-            return flag;
+            return false;
         }
         console.log(isRunYear(2000));
         console.log(isRunYear(1999));

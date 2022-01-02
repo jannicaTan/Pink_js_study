@@ -8,13 +8,27 @@
     <title>Document</title>
     <script>
         // 利用函数冒泡排序 sort 排序
-        function sort(arr) {
-            for (var i = 0; i < arr.length - 1; i++) {
-                for (var j = 0; j < arr.length - i - 1; j++) {
-                    if (arr[j] > arr[j + 1]) {
-                        var temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
+        // 1.外层趟数，内层交换次数
+        // function sort(arr) {
+        //     for (var i = 0; i < arr.length - 1; i++) {
+        //         for (var j = 0; j < arr.length - i - 1; j++) {
+        //             if (arr[j] > arr[j + 1]) {
+        //                 var temp = arr[j];
+        //                 arr[j] = arr[j + 1];
+        //                 arr[j + 1] = temp;
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // 利用函数冒泡排序 sort 排序
+        function sort(arr){
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=i;j<=arr.length-i-1;j++){
+                    if(arr[j]>arr[j+1]){
+                        var temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
                     }
                 }
             }
