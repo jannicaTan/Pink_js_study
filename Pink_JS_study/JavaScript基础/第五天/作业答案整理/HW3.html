@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3. 请描述下面代码的输出结果以及运行原因
+        var num = 1;
+        function demo() {
+            console.log(num);
+            function demoSon() {
+                console.log(num);
+                num = 3;
+                console.log(num);
+            }
+            var num = 2
+            demoSon();
+        }
+        demo();
+
+        //相当于：
+        var num = 1;
+        function demo() {
+            var num;
+            function demoSon() {
+                console.log(num);//2.2
+                num = 3;
+                console.log(num);//3
+            }
+            console.log(num);//1.undefined
+            num = 2
+            demoSon();
+        }
+        demo();//un,2,3
+    </script>
+</body>
+
+</html>

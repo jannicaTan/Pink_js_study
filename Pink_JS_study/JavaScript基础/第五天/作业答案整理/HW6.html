@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/* 6.以下有两个数组
+        一个数组arr是班级里所有的学员的名称，
+        一个数组currentArr是提交了每日反馈的学员名单
+        请创建一种算法，把未提交每日反馈的学员筛选出来
+*/
+        var arr = ["张瑞淑", "徐海涛", "谢岗岗", "薛鹏", "魏明杨", "党婷", "熊飞", "郑翠翠", "李航卫", '张大大', "屈涛", "汪孝双", "代攀飞", "武志钰"];
+        var currentArr = ["张瑞淑", "徐海涛", "谢岗岗", "魏明杨", "党婷", "熊飞", "郑翠翠"];
+        var newArr=[];
+        function checkStu(arr,currentArr){
+            var flag=true;
+            for(var i=0;i<arr.length;i++){
+                for(var j=0;j<currentArr.length;j++){
+                    if(arr[i]===currentArr[j]){
+                        flag=true;
+                        break
+                    }else{
+                        flag=false
+                    }
+                }
+                if(flag==false){
+                    newArr[newArr.length]=arr[i]
+                }
+            }
+            return newArr
+        }
+        console.log(checkStu(arr,currentArr));
+    </script>
+    
+</body>
+</html>

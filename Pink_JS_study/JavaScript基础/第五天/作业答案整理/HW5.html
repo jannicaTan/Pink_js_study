@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   /*      
+    书写一个函数，判断指定数据是否存在于指定数组中
+    要求：
+    函数名称：exist
+    函数调用方式：exist(数据data，数组arr)
+    函数功能：判断“数据data”是否存在于“数组arr”中，
+            如果是函数返回值为true，如果不是函数返回值为false */
+
+    var arr=[12,22,5,7,89,100]
+    function exist(data,arr){
+        for(var i=0;i<arr.length;i++){
+            if(data==arr[i]){
+                return true;
+            }  
+        }
+        return false;
+    }
+    console.log(exist(1,arr));
+    console.log(exist(22,arr));
+    </script>
+</body>
+</html>
