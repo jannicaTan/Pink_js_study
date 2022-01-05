@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        // 获得Date总的毫秒数(时间戳)  不是当前时间的毫秒数 而是距离1970年1月1号过了多少毫秒数
+        // 获得Date总的毫秒数(时间戳)  永远不会重复 用于加密/独一性
+        // 不是当前时间的毫秒数 而是距离1970年1月1号过了多少毫秒数
         // 1. 通过 valueOf()  getTime()
         var date = new Date();
         console.log(date.valueOf()); // 就是 我们现在时间 距离1970.1.1 总的毫秒数
