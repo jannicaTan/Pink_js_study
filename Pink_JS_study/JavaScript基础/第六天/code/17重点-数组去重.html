@@ -12,11 +12,20 @@
         // 2.核心算法： 我们遍历旧数组， 然后拿着旧数组元素去查询新数组， 如果该元素在新数组里面没有出现过， 我们就添加， 否则不添加。
         // 3.我们怎么知道该元素没有存在？ 利用 新数组.indexOf(数组元素) 如果返回时 - 1 就说明 新数组里面没有改元素
         // 封装一个 去重的函数 unique 独一无二的 
-        function unique(arr) {
+/*         function unique(arr) {
             var newArr = [];
             for (var i = 0; i < arr.length; i++) {
                 if (newArr.indexOf(arr[i]) === -1) {
                     newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        } */
+        function unique(arr){
+            var newArr=[];
+            for(var i=0;i<arr.length;i++){
+                if(newArr.indexOf(arr[i])===-1){
+                    newArr.push(arr[i])
                 }
             }
             return newArr;
