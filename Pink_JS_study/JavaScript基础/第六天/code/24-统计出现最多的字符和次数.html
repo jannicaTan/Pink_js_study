@@ -29,9 +29,17 @@
         // 遍历对象，得到最大值和该字符
         var str = 'abcoefoxyozzopp';
         var o = {};
+        // for (var i = 0; i < str.length; i++) {
+        //     var chars = str.charAt(i); // chars 是 字符串的每一个字符
+        //     if (o[chars]) { // o[chars] 得到的是属性值
+        //         o[chars]++;
+        //     } else {
+        //         o[chars] = 1;
+        //     }
+        // }
         for (var i = 0; i < str.length; i++) {
-            var chars = str.charAt(i); // chars 是 字符串的每一个字符
-            if (o[chars]) { // o[chars] 得到的是属性值
+            var chars = str.charAt(i);
+            if (o[chars]) {
                 o[chars]++;
             } else {
                 o[chars] = 1;
@@ -42,8 +50,8 @@
         var max = 0;
         var ch = '';
         for (var k in o) {
-            // k 得到是 属性名
-            // o[k] 得到的是属性值
+            // k 得到是 属性名:a,o,f,e....
+            // o[k] 得到的是属性值:1,2,3,4...
             if (o[k] > max) {
                 max = o[k];
                 ch = k;
