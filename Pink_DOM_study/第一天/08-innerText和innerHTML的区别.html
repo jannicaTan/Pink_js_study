@@ -16,15 +16,15 @@
     </p>
     <script>
         // innerText 和 innerHTML的区别 
-        // 1. innerText 不识别html标签 非标准  去除空格和换行
+        // 1. innerText 不识别html标签 非标准  
         var div = document.querySelector('div');
-        // div.innerText = '<strong>今天是：</strong> 2019';
-        // 2. innerHTML 识别html标签 W3C标准 保留空格和换行的
+        div.innerText = '<strong>今天是：</strong> 2019';
+        // 2. innerHTML 识别html标签 W3C标准 
         div.innerHTML = '<strong>今天是：</strong> 2019';
         // 这两个属性是可读写的  可以获取元素里面的内容
         var p = document.querySelector('p');
-        console.log(p.innerText);
-        console.log(p.innerHTML);
+        console.log(p.innerText);//去除空格和换行
+        console.log(p.innerHTML);//保留空格和换行的
     </script>
 </body>
 

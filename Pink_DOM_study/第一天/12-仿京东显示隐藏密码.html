@@ -18,7 +18,7 @@
             width: 370px;
             height: 30px;
             border: 0;
-            outline: none;
+            outline: none;/* 无边框 */
         }
         
         .box img {
@@ -38,6 +38,10 @@
         <input type="password" name="" id="pwd">
     </div>
     <script>
+        // 核心思路：点击眼睛按钮，把密码框类型改为文本框就可以看见里面的密码
+        // 一个按钮两个状态，点击一次，切换为文本框，维续点击一次切换为密码框
+        // 算法：利用一个1lag安量，来判断1lag的值，
+        //      如果是1 就切换为文本框，flag设置为0，如果是0就切换为密码框，flag设置为1
         // 1. 获取元素
         var eye = document.getElementById('eye');
         var pwd = document.getElementById('pwd');
@@ -47,11 +51,11 @@
             // 点击一次之后， flag 一定要变化
             if (flag == 0) {
                 pwd.type = 'text';
-                eye.src = 'images/open.png';
+                this.src = 'images/open.png';
                 flag = 1; // 赋值操作
             } else {
                 pwd.type = 'password';
-                eye.src = 'images/close.png';
+                this.src = 'images/close.png';
                 flag = 0;
             }
 

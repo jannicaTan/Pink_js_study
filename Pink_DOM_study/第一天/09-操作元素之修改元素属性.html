@@ -20,18 +20,30 @@
 
     <script>
         // 修改元素属性  src
-        // 1. 获取元素
-        var ldh = document.getElementById('ldh');
-        var zxy = document.getElementById('zxy');
-        var img = document.querySelector('img');
-        // 2. 注册事件  处理程序
-        zxy.onclick = function() {
-            img.src = 'images/zxy.jpg';
+        // // 1. 获取元素
+        // var ldh = document.getElementById('ldh');
+        // var zxy = document.getElementById('zxy');
+        // var img = document.querySelector('img');
+        // // 2. 注册事件  处理程序
+        // zxy.onclick = function() {
+        //     img.src = 'images/zxy.jpg';
+        //     img.title = '张学友思密达';
+        // }
+        // ldh.onclick = function() {
+        //     img.src = 'images/ldh.jpg';
+        //     img.title = '刘德华';
+        // }
+        var ldh =document.querySelector('#ldh')
+        var zxy =document.querySelector('#zxy')
+        var img = document.querySelector('img')
+
+        zxy.onclick=function(){
+            img.src='images/zxy.jpg';
             img.title = '张学友思密达';
         }
-        ldh.onclick = function() {
-            img.src = 'images/ldh.jpg';
-            img.title = '刘德华';
+        ldh.onclick=function(){
+            img.src='images/ldh.jpg';
+            img.title = '张学友思密达';
         }
     </script>
 </body>
