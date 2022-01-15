@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //（字符，偏难）-
+        // 思路：
+        // 1.转换为数组进行转换和大小写操作-str.split()/arr.reverse()
+        // 2.筛选首尾进行大小写转换-arr.toUpperCase()/arr.toLowerCase()
+        // 3.数组转换为字符串-arr.join()
+        //利用var s1 = prompt(“请输入任意字符”,””)可以获取用户输入的字符（存到变量s1中了）
+        // 试编程将用户输入的字符“反转顺序”并首尾字母转为大写，其他字母转为小写后alert出来。
+        var s1 = prompt('请输入任意字符');
+        var arr = s1.split('');
+        arr.reverse();
+        for (var i = 0; i < arr.length; i++) {
+            if (i == 0 || i == arr.length - 1) {
+                arr[i] = arr[i].toUpperCase();
+            } else {
+                arr[i] = arr[i].toLowerCase();
+            }
+        }
+        s1=arr.join('');
+        console.log(s1);
+    </script>
+</body>
+
+</html>

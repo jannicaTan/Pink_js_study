@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        数组操作题目描述：把下面数组的首尾两个元素互换
+        var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"]； 
+    -->
+    <script>
+        var arr = ['鹿晗', '王俊凯', '蔡徐坤', '彭于晏', '周杰伦', '刘德华', '赵本山'];
+        // function array(arr) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         var temp = arr[0];
+        //         arr[0] = arr[arr.length - 1];
+        //         arr[arr.length - 1] = temp;
+        //     }
+        //     return arr;
+        // }
+        // var newArray = array(arr);
+        // console.log(newArray);
+
+        // 方法2。arr.splice()
+        var sourceIndex=0;
+        var lastIndex=arr.length-1
+        arr[sourceIndex]=arr.splice(lastIndex,1,arr[sourceIndex])
+        console.log(arr)//⚠️：这里会返回数组中套数组
+
+        // 方法3:ES6
+        [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+        console.log(arr)
+    </script>
+</body>
+
+</html>

@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         /*1.（字符）判断一个字符（比如”a”）
             是否出现在另一个字符（比如”2340sadfj2affa2”）中，如果出现，并求出现了几次。*/
-
+        var str = "2340sadfj2affa2"
+        var index = str.indexOf('a');
+        var num=0;
+        while (index != -1) {
+            num++;
+            index = str.indexOf('a', index + 1);
+        }
+        console.log('a出现的次数是: ' + num);
     </script>
 </body>
+
 </html>

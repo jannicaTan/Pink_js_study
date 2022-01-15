@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //2.字符，偏难）获取一个长文件路径-lastindexOf('字符')/substring
+        // 比如”E:\itcast\class\php\js\day2\abc.html”）中的文件名及其后缀
+        // 结果应该为”abc”和”html”
+        // 注意：在js中，字符串中的特殊字符需要使用反斜杠进行转义，比如“\”要写成“\\”，换行要写成“\n”，单引号要写成“ \’ ”，双引号要写成“ \” ”
+        //因为“\\”前面反斜杠是转义后面的斜杠，当成一个字符；所以 \\ 只能算一个斜杠
+        var str="E:\\itcast\\class\\php\\js\\day2\\abc.html"
+        var gang=str.lastIndexOf('\\')
+        var point=str.lastIndexOf('.')
+        var fileName=str.substring(gang+1,point);
+        var file=str.substring(point+1);
+        console.log('filename:'+fileName);
+        console.log('file:'+file)
+    </script>
+</body>
+</html>
