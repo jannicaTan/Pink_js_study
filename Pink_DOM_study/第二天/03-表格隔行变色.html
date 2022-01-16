@@ -100,14 +100,14 @@
         </tbody>
     </table>
     <script>
-        // 1.获取元素 获取的是 tbody 里面所有的行
+        // 1.获取元素 获取的是 tbody 里面所有的行,并不会获取thead
         var trs = document.querySelector('tbody').querySelectorAll('tr');
         // 2. 利用循环绑定注册事件
         for (var i = 0; i < trs.length; i++) {
             // 3. 鼠标经过事件 onmouseover
             trs[i].onmouseover = function() {
                     // console.log(11);
-                    this.className = 'bg';
+                    this.className = 'bg';//新写的 style
                 }
                 // 4. 鼠标离开事件 onmouseout
             trs[i].onmouseout = function() {

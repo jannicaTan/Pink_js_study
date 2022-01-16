@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <!-- 
+        排他思想：若同组元素想要某一元素实现某种样式，需要用到循环中的排他思想
+        1.所有元素清除样式，使用for循环
+        2.给当前元素设置样式，使用this
+     -->
     <button>按钮1</button>
     <button>按钮2</button>
     <button>按钮3</button>
@@ -27,6 +32,14 @@
                 // (2) 然后才让当前的元素背景颜色为pink 留下我自己
                 this.style.backgroundColor = 'pink';
 
+            }
+        }
+        for (var i=0;i<btns.length;i++){
+            btns[i].onclick=function(){
+                for (var i=0;i<btns.length;i++){
+                    btns[i].style.backgroundColor='';
+                }
+                this.style.backgroundColor='red';    
             }
         }
         //2. 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们成为排他思想
