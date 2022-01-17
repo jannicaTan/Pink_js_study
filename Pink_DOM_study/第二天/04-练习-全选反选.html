@@ -99,6 +99,18 @@
                 j_tbs[i].checked = this.checked;
             }
         }
+        // for(var i=0;i<j_tbs.length;i++){
+        //     j_tbs[i].onclick=function(){
+        //         var flag=true;
+        //         for(var i=0;i<j_tbs.length;i++){
+        //             if(!j_tbs[i].checked){
+        //                 flage=false;
+        //                 break;
+        //             }
+        //         }
+        //         j_cbAll.checked=flag;
+        //     }
+        // }
         // 2. 下面复选框需要全部选中， 上面全选才能选中做法： 给下面所有复选框绑定点击事件，每次点击，都要循环查看下面所有的复选框是否有没选中的，如果有一个没选中的， 上面全选就不选中。
         for (var i = 0; i < j_tbs.length; i++) {
             j_tbs[i].onclick = function () {

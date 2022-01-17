@@ -16,6 +16,7 @@
         <li>光头强</li>
     </ul>
     <script>
+        // node.removeChild(child)
         // 1.获取元素
         var ul = document.querySelector('ul');
         var btn = document.querySelector('button');
@@ -23,10 +24,10 @@
         // ul.removeChild(ul.children[0]);
         // 3. 点击按钮依次删除里面的孩子
         btn.onclick = function() {
-            if (ul.children.length == 0) {
+            if (ul.children.length == 0) {//判断条件
                 this.disabled = true;
             } else {
-                ul.removeChild(ul.children[0]);
+                ul.removeChild(ul.children[0]);//删除指定元素
             }
         }
     </script>

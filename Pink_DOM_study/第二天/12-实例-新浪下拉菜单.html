@@ -125,13 +125,13 @@
         </li>
     </ul>
     <script>
-        // 1. 获取元素
+        // 1. 获取元素 4个li-nav的孩子
         var nav = document.querySelector('.nav');
         var lis = nav.children; // 得到4个小li
         // 2.循环注册事件
         for (var i = 0; i < lis.length; i++) {
             lis[i].onmouseover = function() {
-                this.children[1].style.display = 'block';
+                this.children[1].style.display = 'block';//this.children[1]-li里面的第二个孩子即ul显示
             }
             lis[i].onmouseout = function() {
                 this.children[1].style.display = 'none';

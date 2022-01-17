@@ -52,6 +52,7 @@
 </head>
 
 <body>
+    <!-- 先分析结构再进行编写 -->
     <div class="tab">
         <div class="tab_list">
             <ul>
@@ -82,13 +83,35 @@
         </div>
     </div>
     <script>
+        /* 
+        ① Tab栏切换有2个大的模块
+        ② 上的模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想）修改类名的方式
+        ③ 下面的模块内容，会跟随上面的选项卡变化， 所以下面模块交化气到点击事件里面。
+        ④ 规律：下面的模块显示内容和上面的选项卡一对应。相匹包
+        ⑤ 核心思路：给上面的tab_list 里面的所有小1添加自定义属性，属性值从0开始编号。
+        6. 当我们点在tab_list里的小i，让tab_con里对应序号的内容显示，其余隐藏
+        */
         // 获取元素
         var tab_list = document.querySelector('.tab_list');
         var lis = tab_list.querySelectorAll('li');
+
         var items = document.querySelectorAll('.item');
         // for循环绑定点击事件
+        // for(var i=0;i<lis.length;i++){
+        //     lis[i].setAttribute('index', i);
+        //     lis[i].onclick=function(){
+        //         for(var i=0;i<lis.length;i++){
+        //             lis[i].className=''
+        //             items[i].style.display='none'
+        //         }
+        //         this.className='current'
+        //         var index =this.getAttribute('index');
+        //         // console.log(index)
+        //         items[index].style.display='block';
+        //     }
+        // }
         for (var i = 0; i < lis.length; i++) {
-            // 开始给5个小li 设置索引号 
+            // 2.1 开始给5个小li 设置索引号 
             lis[i].setAttribute('index', i);
             lis[i].onclick = function() {
                 // 1. 上的模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想） 修改类名的方式
