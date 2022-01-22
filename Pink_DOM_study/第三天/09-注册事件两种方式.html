@@ -14,24 +14,28 @@
     <button>ie9 attachEvent</button>
     <script>
         var btns = document.querySelectorAll('button');
-        // 1. 传统方式注册事件
-        btns[0].onclick = function() {
+        // 1. 传统方式注册事件 利用on开头 
+        // 特点:注册时间具有唯一性 同一个元素的同一事件只能设置一个处理函数
+        btns[0].onclick = function () {
             alert('hi');
         }
-        btns[0].onclick = function() {
-                alert('hao a u');
-            }
-            // 2. 事件侦听注册事件 addEventListener 
-            // (1) 里面的事件类型是字符串 必定加引号 而且不带on
-            // (2) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）
-        btns[1].addEventListener('click', function() {
+        btns[0].onclick = function () {
+            alert('hao a u');
+        }
+        // 2. 事件侦听注册事件 addEventListener('type:事件类型',function(){   },useCapture)
+        // (1) 里面的事件类型是字符串 必定加引号 而且不带on
+        // (2) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）按顺序执行
+        btns[1].addEventListener('click', function () {
+            alert('success');
+        })
+        btns[1].addEventListener('click', function () {
             alert(22);
         })
-        btns[1].addEventListener('click', function() {
-                alert(33);
-            })
-            // 3. attachEvent ie9以前的版本支持
-        btns[2].attachEvent('onclick', function() {
+        btns[1].addEventListener('click', function () {
+            alert(33);
+        })
+        // 3. attachEvent ie9以前的版本支持
+        btns[2].attachEvent('onclick', function () {
             alert(11);
         })
     </script>

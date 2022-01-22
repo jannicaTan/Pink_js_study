@@ -17,6 +17,12 @@
 <body>
     <img src="images/angel.gif" alt="">
     <script>
+        /* 
+        1 鼠标不断的移动，使用最标移动事件：mousemove
+        2 在页面中移动，给document注册事件
+        3 图片要移动距离，而且不占位置，我们使用绝对定位即可
+        4 核心原理：每次鼠标移动，我们都会获得最新的鼠标坐标，把这个x和y坐标做为图片的top和left值就可以移动图片
+        */
         var pic = document.querySelector('img');
         document.addEventListener('mousemove', function(e) {
             // 1. mousemove只要我们鼠标移动1px 就会触发这个事件

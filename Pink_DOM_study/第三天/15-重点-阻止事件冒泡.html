@@ -33,17 +33,18 @@
     </div>
     <script>
         // 常见事件对象的属性和方法
-        // 阻止冒泡  dom 推荐的标准 stopPropagation() 
+        // stopPropagation() 阻止冒泡  dom 推荐的标准 stopPropagation() 
         var son = document.querySelector('.son');
         son.addEventListener('click', function(e) {
             alert('son');
             e.stopPropagation(); // stop 停止  Propagation 传播
-            e.cancelBubble = true; // 非标准 cancel 取消 bubble 泡泡
+            e.cancelBubble = true; // 低IE版本 非标准 cancel 取消 bubble 泡泡
         }, false);
 
         var father = document.querySelector('.father');
-        father.addEventListener('click', function() {
+        father.addEventListener('click', function(e) {
             alert('father');
+            e.stopPropagation();
         }, false);
         document.addEventListener('click', function() {
             alert('document');

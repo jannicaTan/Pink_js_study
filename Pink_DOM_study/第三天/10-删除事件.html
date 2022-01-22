@@ -20,6 +20,7 @@
     <div>2</div>
     <div>3</div>
     <script>
+        // 应用:适合用于只执行一次的
         var divs = document.querySelectorAll('div');
         divs[0].onclick = function() {
                 alert(11);
@@ -31,9 +32,10 @@
 
         function fn() {
             alert(22);
+            divs[1].removeEventListener 
             divs[1].removeEventListener('click', fn);
         }
-        // 3. detachEvent
+        // 3. detachEvent  IE9以下的老版本
         divs[2].attachEvent('onclick', fn1);
 
         function fn1() {

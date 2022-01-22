@@ -17,13 +17,17 @@
         <li>知否知否，点我应有弹框在手！</li>
     </ul>
     <script>
-        // 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点
+        // 事件委托的核心原理：不给每个子节点单独设置监听器 给父节点添加侦听器，利用事件冒泡传到父节点 影响每一个子节点
+        //  作用：只操作了一次DOM，提高了效率
         var ul = document.querySelector('ul');
         ul.addEventListener('click', function(e) {
             // alert('知否知否，点我应有弹框在手！');
             // e.target 这个可以得到我们点击的对象
             e.target.style.backgroundColor = 'pink';
         })
+
+
+        // 尝试用排他思想
     </script>
 </body>
 
