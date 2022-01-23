@@ -11,6 +11,7 @@
 <body>
     <button>点击停止定时器</button>
     <script>
+        // clearTimeout(id定时器的名字) 最好在设置时为定时器设置名字
         var btn = document.querySelector('button');
         var timer = setTimeout(function() {
             console.log('爆炸了');

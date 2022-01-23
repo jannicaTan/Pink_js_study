@@ -17,11 +17,12 @@
 
 <body>
     <script>
+        // 调整浏览器窗口大小事件：window.resize()
+        // 使用场景：完成相应式布局
         window.addEventListener('load', function() {
             var div = document.querySelector('div');
             window.addEventListener('resize', function() {
                 console.log(window.innerWidth);
-
                 console.log('变化了');
                 if (window.innerWidth <= 800) {
                     div.style.display = 'none';

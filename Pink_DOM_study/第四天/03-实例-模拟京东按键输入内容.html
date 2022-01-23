@@ -15,12 +15,20 @@
         // 使用键盘事件对象里面的keyCode 判断用户按下的是否是s键
         // 搜索框获得焦点： 使用 js 里面的 focus() 方法
         var search = document.querySelector('input');
-        document.addEventListener('keyup', function(e) {
-            // console.log(e.keyCode);
-            if (e.keyCode === 83) {
+        // 不用keydown的原因是：会在输入框内显示s按键
+        document.addEventListener('keyup',function(e){
+            console.log(e.keyCode)
+            if(e.keyCode==83){
                 search.focus();
             }
         })
+        // var search = document.querySelector('input');
+        // document.addEventListener('keyup', function(e) {
+        //     // console.log(e.keyCode);
+        //     if (e.keyCode === 83) {
+        //         search.focus();
+        //     }
+        // })
     </script>
 </body>
 

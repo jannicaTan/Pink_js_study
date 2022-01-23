@@ -11,13 +11,13 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .search {
             position: relative;
             width: 178px;
             margin: 100px;
         }
-        
+
         .con {
             display: none;
             position: absolute;
@@ -30,7 +30,7 @@
             line-height: 20px;
             color: #333;
         }
-        
+
         .con::before {
             content: '';
             width: 0;
@@ -55,17 +55,38 @@
         // 表单检测用户输入： 给表单添加键盘事件
         // 同时把快递单号里面的值（value）获取过来赋值给 con盒子（innerText）做为内容
         // 如果快递单号里面内容为空，则隐藏大号字体盒子(con)盒子
-        var con = document.querySelector('.con');
-        var jd_input = document.querySelector('.jd');
-        jd_input.addEventListener('keyup', function() {
-                // console.log('输入内容啦');
-                if (this.value == '') {
-                    con.style.display = 'none';
-                } else {
-                    con.style.display = 'block';
-                    con.innerText = this.value;
-                }
-            })
+
+        // 使用keydown会造成输入延后：按下时并没有传递给input 所以不会显示con的效果
+        // 使用keypress不仅会造成输入延后，还因为无法识别功能键，不能识别del等键
+        var con = document.querySelector('.con')
+        var jd_input = document.querySelector('.jd')
+        jd_input.addEventListener('keyup', function () {
+            if (this.value == '') {
+                con.style.display = 'none'
+            } else {
+                con.style.display = 'block';
+                con.innerHTML= this.value;
+            }
+        })
+        // var con = document.querySelector('.con');
+        // var jd_input = document.querySelector('.jd');
+        // jd_input.addEventListener('keyup', function () {
+        //     // console.log('输入内容啦');
+        //     if (this.value == '') {
+        //         con.style.display = 'none';
+        //     } else {
+        //         con.style.display = 'block';
+        //         con.innerText = this.value;
+        //     }
+        // })
+        // jd_input.addEventListener('blur', function () {
+        //     con.style.display = 'none';
+        // })
+        // jd_input.addEventListener('focus', function () {
+        //     if (this.value !== '') {
+        //         con.style.display = 'block'
+        //     }
+        // })
             // 当我们失去焦点，就隐藏这个con盒子
         jd_input.addEventListener('blur', function() {
                 con.style.display = 'none';
