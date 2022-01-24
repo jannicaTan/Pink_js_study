@@ -14,16 +14,19 @@
     <script>
         var begin = document.querySelector('.begin');
         var stop = document.querySelector('.stop');
-        var timer = null; // 全局变量  null是一个空对象
+        var timer = null; // 全局变量  null是一个空对象 不可以在函数中定义,不然就是局部变量
         begin.addEventListener('click', function() {
             timer = setInterval(function() {
                 console.log('ni hao ma');
 
             }, 1000);
         })
-        stop.addEventListener('click', function() {
+        stop.addEventListener('click',function(){
             clearInterval(timer);
         })
+        // stop.addEventListener('click', function() {
+        //     clearInterval(timer);
+        // })
     </script>
 </body>
 

@@ -14,20 +14,28 @@
     <script>
         var btn = document.querySelector('button');
         var div = document.querySelector('div');
-        btn.addEventListener('click', function() {
-            // console.log(location.href);
-            location.href = 'http://www.itcast.cn';
-        })
         var timer = 5;
-        setInterval(function() {
-            if (timer == 0) {
-                location.href = 'http://www.itcast.cn';
-            } else {
-                div.innerHTML = '您将在' + timer + '秒钟之后跳转到首页';
-                timer--;
-            }
+        btn.addEventListener('click', function () {
+            // console.log(location.href);
+            setInterval(function () {
+                if (timer == 0) {
+                    location.href = 'http://www.itcast.cn';
+                } else {
+                    div.innerHTML = '您将在' + timer + '秒钟之后跳转到首页';
+                    timer--;
+                }
+            }, 1000);
+        })
+        // var timer = 5;
+        // setInterval(function() {
+        //     if (timer == 0) {
+        //         location.href = 'http://www.itcast.cn';
+        //     } else {
+        //         div.innerHTML = '您将在' + timer + '秒钟之后跳转到首页';
+        //         timer--;
+        //     }
 
-        }, 1000);
+        // }, 1000);
     </script>
 </body>
 

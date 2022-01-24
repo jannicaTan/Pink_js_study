@@ -13,10 +13,12 @@
     <script>
         var btn = document.querySelector('button');
         btn.addEventListener('click', function() {
+            // 跳转页面,类似location.href()
             // 记录浏览历史，所以可以实现后退功能
             // location.assign('http://www.itcast.cn');
             // 不记录浏览历史，所以不可以实现后退功能
             // location.replace('http://www.itcast.cn');
+            // 重新加载页面，刷新页面=F5
             location.reload(true);
         })
     </script>

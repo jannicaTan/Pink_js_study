@@ -21,7 +21,9 @@
 
         // console.log(2);
 
-        // 2. 第二个问题
+        // 2. 第二个问题：123
+        // 同步任务在一个执行栈上，异步是通过回调函数实现(普通事件/资源加载load、error/定时器setInterval、setTimeout)
+        // 先执行同步任务都执行完再进行异步任务
         // console.log(1);
 
         // setTimeout(function() {
@@ -32,9 +34,11 @@
 
         // console.log(2);
 
-        // 3. 第三个问题
+        // 3. 第三个问题:异步进程处理 
+        // Eventloop(事件循环):由于主线程不断的重复获得任务、执行任务再获取任务、再执行的过程
 
         console.log(1);
+        // 如果不点击,则不会将它放入到异步队列
         document.onclick = function() {
             console.log('click');
         }
