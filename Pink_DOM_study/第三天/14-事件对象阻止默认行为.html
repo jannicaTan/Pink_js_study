@@ -29,7 +29,7 @@
             console.log(e.type);
 
         }
-        // 2. reventDefault() 阻止默认行为（事件） 让链接不跳转 或者让提交按钮不提交
+        // 2. preventDefault() 阻止默认行为（事件） 让链接不跳转 或者让提交按钮不提交
         var a = document.querySelector('a');
         a.addEventListener('click', function(e) {
                 e.preventDefault(); //  dom 标准写法

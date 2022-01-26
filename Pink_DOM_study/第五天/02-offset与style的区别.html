@@ -19,7 +19,11 @@
 <body>
     <div class="box" style="width: 200px;"></div>
     <script>
-        // offset与style的区别
+        // offset与style的区别:
+        // style只能获取行内样式表的样式
+        // offset 获取为数字 不带有单位 style获取为字符串 带有数字
+        // offset 只读 style 可修改
+        // 获取元素大小：offset 给元素更改值：style
         var box = document.querySelector('.box');
         console.log(box.offsetWidth);
         console.log(box.style.width);
