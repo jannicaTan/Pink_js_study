@@ -18,6 +18,7 @@
 }
 
 .preview_img {
+    /* 子绝父相 */
     position: relative;
     height: 398px;
     border: 1px solid #ccc;
@@ -33,7 +34,7 @@
     background: #FEDE4F;
     opacity: .5;
     border: 1px solid #ccc;
-    cursor: move;
+    cursor: move;/*鼠标图标*/
 }
 
 .big {
@@ -44,7 +45,7 @@
     width: 500px;
     height: 500px;
     background-color: pink;
-    z-index: 999;
+    z-index: 999;/*提高层级*/
     border: 1px solid #ccc;
     overflow: hidden;
 }
