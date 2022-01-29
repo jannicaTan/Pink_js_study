@@ -21,8 +21,11 @@
     <div></div>
     <script>
         // client 宽度 和我们offsetWidth 最大的区别就是 不包含边框
+        // client 返回 padding+内容
         var div = document.querySelector('div');
+        console.log(div.offsetWidth)
         console.log(div.clientWidth);
+        // clientTop/clientLeft可以返回元素上/左边框的大小
     </script>
 </body>
 

@@ -33,23 +33,30 @@ window.addEventListener("load", function () {
     // maskMaxX/maskMaxY:图片层的宽度-遮罩层宽度   -------此为鼠标移动的最大距离,防止遮罩层移动出框
     var maskX = x - mask.offsetWidth / 2;
     var maskY = y - mask.offsetHeight / 2;
-    var maskMaxX =this.offsetWidth-mask.offsetWidth;
-    var maskMaxY=this.offsetHeight-mask.offsetHeight;
+    var maskMaxX = this.offsetWidth - mask.offsetWidth;
+    var maskMaxY = this.offsetHeight - mask.offsetHeight;
     if (maskX <= 0) {
-        maskX=0;
+      maskX = 0;
     } else if (maskX >= maskMaxX) {
-        maskX=maskMaxX
+      maskX = maskMaxX;
     }
     if (maskY <= 0) {
-        maskY=0;
+      maskY = 0;
     } else if (maskY >= maskMaxY) {
-        maskY=maskMaxY
+      maskY = maskMaxY;
     }
     mask.style.left = maskX + "px";
     mask.style.top = maskY + "px";
-    // 
+    //
     //遮挡层移动距离/遮挡层MAX =大图片移动距离/大图片MAX----->大图片移动距离=遮挡层移动距离*大图片MAX/遮挡层MAX
-    
+    var bigImg = document.querySelector(".bigImg");
+    // 这里是在500px的层中展示800px的图,所以要节选
+    var bigMaxX = big.offsetWidth - bigImg.offsetWidth;
+    var bigMaxY = bigMaxX;
+    var bigX = (maskX * bigMaxX) / maskMaxX;
+    var bigY = (maskY * bigMaxY) / maskMaxY;
+    bigImg.style.left = bigX + "px";
+    bigImg.style.top = bigY + "px";
   });
 });
 // window.addEventListener('load', function() {
@@ -91,15 +98,15 @@ window.addEventListener("load", function () {
 //         mask.style.left = maskX + 'px';
 //         mask.style.top = maskY + 'px';
 //         // 3. 大图片的移动距离 = 遮挡层移动距离 * 大图片最大移动距离 / 遮挡层的最大移动距离
-//         // 大图
-//         var bigIMg = document.querySelector('.bigImg');
-//         // 大图片最大移动距离
-//         var bigMax = bigIMg.offsetWidth - big.offsetWidth;
-//         // 大图片的移动距离 X Y
-//         var bigX = maskX * bigMax / maskMax;
-//         var bigY = maskY * bigMax / maskMax;
-//         bigIMg.style.left = -bigX + 'px';
-//         bigIMg.style.top = -bigY + 'px';
+// // 大图
+// var bigIMg = document.querySelector('.bigImg');
+// // 大图片最大移动距离
+// var bigMax = bigIMg.offsetWidth - big.offsetWidth;
+// // 大图片的移动距离 X Y
+// var bigX = maskX * bigMax / maskMax;
+// var bigY = maskY * bigMax / maskMax;
+// bigIMg.style.left = -bigX + 'px';
+// bigIMg.style.top = -bigY + 'px';
 
 //     })
 

@@ -13,7 +13,7 @@
             background-color: pink;
             border: 10px solid red;
             padding: 10px;
-            overflow: auto;
+            overflow: auto;/*出现滚动条*/
         }
     </style>
 </head>
@@ -23,14 +23,15 @@
         我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容
     </div>
     <script>
-        // scroll 系列
+        // scroll 系列:真正内容大小
+        // 高度不包含边框，但是如果内容超过层了 回显示为内容的大小
         var div = document.querySelector('div');
         console.log(div.scrollHeight);
         console.log(div.clientHeight);
         // scroll滚动事件当我们滚动条发生变化会触发的事件
+        // scrollTop:向上滚动后，内容超出的部分为:由边框上沿+上方超出部分
         div.addEventListener('scroll', function() {
             console.log(div.scrollTop);
-
         })
     </script>
 </body>
