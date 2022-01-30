@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        // 1.获取元素
+        var sliderBar = document.querySelector('.slider-bar');
+        var header = document.querySelector('.header');
+        var banner = document.querySelector('.banner');
+        var bannerTop = banner.offsetTop;
+        var sliderTop = sliderBar.offsetTop - bannerTop;
+        var main = document.querySelector('.main');
+        var mainTop = main.offsetTop
+        var goBack = document.querySelector('.goBack');
+        // 2. 页面滚动事件scroll 判断被卷去的头部(window.pageYoffset)>=banner.offsetTop
+        window.addEventListener('scroll', function () {
+            // 3.保持侧边栏的距离:sliderbar.offsetTop-banner.offsetTop 返回时再修复为原先的定位
+            if (window.pageYOffset >= bannerTop) {
+                sliderBar.style.position = 'fixed';
+                sliderBar.style.top = sliderTop + 'px';
+            } else {
+                sliderBar.style.position = 'absolute';
+                sliderBar.style.top = '300px';
+            }
+            // 4.拖到底部有返回上方的字样
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+
+        })
+    </script>
+</body>
+
+</html>

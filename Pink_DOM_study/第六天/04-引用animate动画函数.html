@@ -46,7 +46,15 @@
         // 当我们鼠标离开 sliderbar 就会让 con这个盒子滑动到右侧
         sliderbar.addEventListener('mouseenter', function() {
             // animate(obj, target, callback);
-            animate(con, -160, function() {
+            // target=盒子本身宽度-bar宽度
+            console.log(sliderbar.offsetWidth)
+            console.log(con.offsetWidth)
+            // 注意：这里不可以用style获取,因为style只能获取行内样式的
+            // 可采取clientWidth( width、padding)/offsetWidth( width、padding 和 border)
+            // var target=con.style.width-sliderbar.style.width
+            var target=-(con.offsetWidth-sliderbar.offsetWidth)
+            // console.log(target)
+            animate(con, target , function() {
                 // 当我们动画执行完毕，就把 ← 改为 →
                 sliderbar.children[0].innerHTML = '→';
             });

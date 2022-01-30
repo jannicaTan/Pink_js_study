@@ -30,6 +30,8 @@
         console.log(div.clientHeight);
         // scroll滚动事件当我们滚动条发生变化会触发的事件
         // scrollTop:向上滚动后，内容超出的部分为:由边框上沿+上方超出部分
+        // 注意：这里是计算的元素不是页面
+        // 如果计算页面整体被卷入多少，可以用window.pageYoffset
         div.addEventListener('scroll', function() {
             console.log(div.scrollTop);
         })
