@@ -14,7 +14,7 @@
             height: 100px;
             background-color: pink;
         }
-        
+
         span {
             position: absolute;
             left: 0;
@@ -37,27 +37,39 @@
             // console.log(callback);  callback = function() {}  调用的时候 callback()
 
             // 先清除以前的定时器，只保留当前的一个定时器执行
-            
-                    // 停止动画 本质是停止定时器
-            
-                    // 回调函数写到定时器结束里面
-
+            clearInterval(obj.timer);
+            // 1.停止动画 本质是停止定时器
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    // 2.回调函数写到定时器结束里面
+                    if (callback) {
+                        callback();
+                    }
+                }
                 // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+                obj.style.left = obj.offsetLeft + step + 'px';
+            },15);
         }
         var span = document.querySelector('span');
         var btn500 = document.querySelector('.btn500');
         var btn800 = document.querySelector('.btn800');
 
-        btn500.addEventListener('click', function() {
+        btn500.addEventListener('click', function () {
             // 调用函数
             animate(span, 500);
         })
-        btn800.addEventListener('click', function() {
-                // 调用函数
-                // 1.将回调函数作为一个参数放在里面去调用,执行后变成红色
+        btn800.addEventListener('click', function () {
+            // 调用函数
+            // 1.将回调函数作为一个参数放在里面去调用,执行后变成红色
+            animate(span, 800, function () {
+                span.style.backgroundColor = 'blue';
             })
-            // 匀速动画 就是 盒子是当前的位置 +  固定的值 10 
-            // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 10）
+        })
+        // 匀速动画 就是 盒子是当前的位置 +  固定的值 10 
+        // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 10）
     </script>
 </body>
 
