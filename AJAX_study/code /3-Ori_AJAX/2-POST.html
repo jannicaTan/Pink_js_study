@@ -15,6 +15,28 @@
 <body>
     <div id="result"></div>
     <script>
+        // 事件:鼠标经过后，发送请求从服务器端获取展示内容
+        // 要检查服务端有POST的方式
+        const result=document.querySelector('#result')
+        result.addEventListener('mouseover',function(){
+            // console.log('1111')
+            const xhr=new XMLHttpRequest;
+            xhr.open('POST','http://localhost:8000/server');
+            // 在send里面设置请求体参数:将内容发送给服务端
+            xhr.send('haha=1&jingjing=1&ha=23');
+            xhr.onreadystatechange = function(){
+                //判断
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        //处理服务端返回的结果
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+    </script>
+    <!-- <script>
+        // 事件:鼠标经过后，发送请求从服务器端获取展示内容
         //获取元素对象
         const result = document.getElementById("result");
         //绑定事件
@@ -42,6 +64,6 @@
                 }
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>

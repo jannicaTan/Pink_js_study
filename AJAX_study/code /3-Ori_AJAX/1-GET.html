@@ -22,7 +22,7 @@
         btn[0].addEventListener('click', function () {
                 // console.log('test')
                 const xhr = new XMLHttpRequest();
-                xhr.open('GET', 'http://localhost:8000/server');
+                xhr.open('GET', 'http://localhost:8000/server?haha=1&jingjing=1&ha=23');
                 xhr.send();
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) {
@@ -49,7 +49,8 @@
         btn.onclick = function(){
             //1. 创建对象
             const xhr = new XMLHttpRequest();
-            //2. 初始化 xhr.open 设置请求方法和 url
+            //2. 初始化 xhr.open 设置请求方法和 url 发送方式是什么/给谁发
+            //  ？后面传输参数 可在network-querystring中查看传递参数
             xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
             //3. 发送
             xhr.send();
