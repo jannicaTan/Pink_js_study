@@ -14,7 +14,7 @@ HTTP（hypertext transport protocol）协议『超文本传输协议』，协议
         Content-type: application/x-www-form-urlencoded
         User-Agent: chrome 83
 空行
-体      send
+体      send('请求体内容')
         GET:请求体可以为空/POST:不为空
         username=admin&password=admin
 ```

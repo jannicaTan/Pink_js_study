@@ -16,14 +16,19 @@
     <div id="result"></div>
     <script>
         // 事件:鼠标经过后，发送请求从服务器端获取展示内容
+        // 设置请求体参数——send('内容')：将请求体内容发送给服务端
+        // 设置请求头参数——xhr.setRequestHeader():一般将身份校验信息放在头信息中进行校验
         // 要检查服务端有POST的方式
         const result=document.querySelector('#result')
         result.addEventListener('mouseover',function(){
             // console.log('1111')
             const xhr=new XMLHttpRequest;
             xhr.open('POST','http://localhost:8000/server');
-            // 在send里面设置请求体参数:将内容发送给服务端
+            // 设置请求头:
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')//预定义设置参数查询字符串的固定写法
+            // 在send里面设置请求体参数:将请求体内容发送给服务端
             xhr.send('haha=1&jingjing=1&ha=23');
+
             xhr.onreadystatechange = function(){
                 //判断
                 if(xhr.readyState === 4){

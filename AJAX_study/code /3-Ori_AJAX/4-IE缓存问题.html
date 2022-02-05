@@ -16,12 +16,15 @@
     <button>点击发送请求</button>
     <div id="result"></div>
     <script>
+        // IE缓存问题：返回结果修改后，不能使最新结果进行呈现。对于时效性强的事件会有影响
         const btn = document.getElementsByTagName('button')[0];
         const result = document.querySelector('#result');
 
         btn.addEventListener('click', function(){
             const xhr = new XMLHttpRequest();
+            // 添加Date.now()时间戳
             xhr.open("GET",'http://127.0.0.1:8000/ie?t='+Date.now());
+            // xhr.open("GET",'http://127.0.0.1:8000/ie?t='+Date.now());
             xhr.send();
             xhr.onreadystatechange = function(){
                 if(xhr.readyState === 4){

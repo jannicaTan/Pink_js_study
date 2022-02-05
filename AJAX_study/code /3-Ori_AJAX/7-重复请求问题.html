@@ -25,6 +25,7 @@
             x.onreadystatechange = function(){
                 if(x.readyState === 4){
                     //修改标识变量
+                    // 不需要添加状态码判断，因为有可能请求不一定成功
                     isSending = false;
                 }
             }
