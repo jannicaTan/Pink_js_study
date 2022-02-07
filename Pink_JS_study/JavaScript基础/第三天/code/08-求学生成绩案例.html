@@ -30,8 +30,8 @@
         for (var i = 1; i <= num; i++) {
             var score = prompt('请输入成绩:');
             // 注意：因为从prompt取过来的数据是 字符串型的需要转换为数字型
-            sum += parseFloat(score); //❓这里不行，会返回NaN,求解
-            sum = sum+parseFloat(score);
+            sum += parseFloat(score); 
+            // sum = sum+parseFloat(score);
         }
         average = sum / num;
         alert('总成绩为：' + sum);
