@@ -1,10 +1,9 @@
-const express = require('express');
-
+const express=require('express');
 const app = express();
 
 app.get('/home', (request, response)=>{
     //响应一个页面
-    response.sendFile(__dirname + '/index.html');
+    response.sendFile(__dirname + '/index.html');//绝对路径
 });
 
 app.get('/data', (request, response)=>{

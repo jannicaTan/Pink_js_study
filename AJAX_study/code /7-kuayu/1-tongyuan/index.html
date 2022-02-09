@@ -6,11 +6,14 @@
     <title>首页</title>
 </head>
 <body>
+    <!-- 跨域：违背同源策略就是跨域 -->
+    <!-- Ajax默认遵循同源策略 -->
+    <!-- localhost与127.0.0.1不可以混用 -->
+    <!-- 用localhost访问，由服务器返回内容，点击按钮后，再次从同一个服务器发出 -->
     <h1>尚硅谷</h1>
     <button>点击获取用户数据</button>
     <script>
         const btn = document.querySelector('button');
-
         btn.onclick = function(){
             const x = new XMLHttpRequest();
             //这里因为是满足同源策略的, 所以 url 可以简写
