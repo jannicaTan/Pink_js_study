@@ -1,0 +1,13 @@
+html,
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+html li,
+body li,
+ul li {
+  line-height: 50px;
+  padding-left: 40px;
+  font-size: 12px;
+}
