@@ -6,9 +6,19 @@
 
 Tips：这部分代码有的已经为了练习已经修改过了，如果希望复习练习建议根据我提供的源代码链接或者相关课程视频下寻找课程代码💗
 
-### 学习顺序：
+# 学习路线及资料参考
 
-学习路线参考
+## 📚书籍及笔记
+
+1.JS红皮书
+
+![JS红皮书](https://cdn.jsdelivr.net/gh/jannicaTan/image_picX@master/前端书籍/JS红皮书.webp)
+
+2.你不知道的JavaScript
+
+![你不知道的javascript](https://raw.githubusercontent.com/jannicaTan/image_picX/master/前端书籍/你不知道的javascript.webp)
+
+## 📹视频
 
 #### 1.JS基础——[Pink_JS_study](https://github.com/jannicaTan/Pink_js_study/tree/main/Pink_JS_study)
 
