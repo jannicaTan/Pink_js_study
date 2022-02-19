@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 用{{ }}把数据填充到 div 内部 -->
+    <div id="app">
+        <p>count的值是：{{count}}</p>
+        <button v-on:click="add(1)">add</button>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            // el 属性是固定的写法，表示当前 vm 实例要控制页面上的哪个区域，接收的值是一个选择器
+            // el为view视图区域
+            el: '#app',
+            // data为model数据源
+            data: {
+                count: 1
+            },
+            // 用于编写处理函数
+            methods: {
+                // 保持复用性
+                add(n) {
+                    this.count += n
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

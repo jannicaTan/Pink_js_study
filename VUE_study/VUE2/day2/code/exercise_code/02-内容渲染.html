@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        1.v-text:
+        <p v-text="username"></p>
+        <p v-text="gender">性别:</p>
+        <hr>
+        2.{{}}-插值表达式:
+        <p>{{username}}</p>
+        <p>性别:{{gender}}</p>
+        <hr>
+        3.v-html插入带有样式的html语句
+        <div v-html="info"></div>
+
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            // el 属性是固定的写法，表示当前 vm 实例要控制页面上的哪个区域，接收的值是一个选择器
+            // el为view视图区域
+            el: '#app',
+            // data为model数据源
+            data: {
+                username: 'zhangsan',
+                gender:'女',
+                info: '<h4 style="color: red; font-weight: bold;">test:v-html</h4>'
+            }
+        })
+    </script>
+</body>
+</html>
