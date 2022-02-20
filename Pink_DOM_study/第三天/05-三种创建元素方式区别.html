@@ -21,29 +21,29 @@
         // 三种创建元素方式区别 
         // 1. document.write() 创建元素  
         // 缺点：如果页面文档流加载完毕，再调用这句话会导致页面重绘 新的HTML页面
-        // var btn = document.querySelector('button');
-        // btn.onclick = function() {
-        //     document.write('<div>123</div>');
-        // }
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            document.write('<div>123</div>');
+        }
 
         // 2. innerHTML 创建元素
         // 拼接字符串效率会慢
         // 将字符串转换为数组 再将数组拼接后转换回字符串效率会变高
-        var inner = document.querySelector('.inner');
+        // var inner = document.querySelector('.inner');
+        // // for (var i = 0; i <= 100; i++) {
+        // //     inner.innerHTML += '<a href="#">百度</a>'
+        // // }
+        // var arr = [];
         // for (var i = 0; i <= 100; i++) {
-        //     inner.innerHTML += '<a href="#">百度</a>'
+        //     arr.push('<a href="#">百度</a>');
         // }
-        var arr = [];
-        for (var i = 0; i <= 100; i++) {
-            arr.push('<a href="#">百度</a>');
-        }
-        inner.innerHTML = arr.join('');
-        // 3. document.createElement() 创建元素 创建多个元素时效率高
-        var create = document.querySelector('.create');
-        for (var i = 0; i <= 100; i++) {
-            var a = document.createElement('a');
-            create.appendChild(a);
-        }
+        // inner.innerHTML = arr.join('');
+        // // 3. document.createElement() 创建元素 创建多个元素时效率高
+        // var create = document.querySelector('.create');
+        // for (var i = 0; i <= 100; i++) {
+        //     var a = document.createElement('a');
+        //     create.appendChild(a);
+        // }
     </script>
 </body>
 
