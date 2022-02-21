@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+  </head>
+
+  <body>
+    <!-- 用{{ }}把数据填充到 div 内部 -->
+    <div id="app">
+      <table class="table">
+        <thead>
+          <th>索引</th>
+          <th>id</th>
+          <th>name</th>
+          <th>age</th>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in list" :key="item.id">
+            <td>{{ index }}</td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{item.age}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+      const vm = new Vue({
+        // el 属性是固定的写法，表示当前 vm 实例要控制页面上的哪个区域，接收的值是一个选择器
+        // el为view视图区域
+        el: "#app",
+        // data为model数据源
+        data: {
+          list: [
+            {
+              id: 1,
+              name: "aa",
+              age: "28",
+            },
+            {
+              id: 2,
+              name: "bb",
+              age: "24",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

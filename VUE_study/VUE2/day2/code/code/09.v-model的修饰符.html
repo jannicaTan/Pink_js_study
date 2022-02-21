@@ -11,8 +11,10 @@
 <body>
   <!-- 希望 Vue 能够控制下面的这个 div，帮我们把数据填充到 div 内部 -->
   <div id="app">
+    <!-- 转换为数字 -->
     <input type="text" v-model.number="n1"> + <input type="text" v-model.number="n2"> = <span>{{ n1 + n2 }}</span>
     <hr>
+    <!-- 去除空格 -->
     <input type="text" v-model.trim="username">
     <button @click="showName">获取用户名</button>
     <hr>
