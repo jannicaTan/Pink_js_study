@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <!-- 希望 Vue 能够控制下面的这个 div，帮我们在把数据填充到 div 内部 -->
   <div id="app">
     <p>count 的值是：{{ count }}</p>
     <!-- 如果 count 是偶数，则 按钮背景变成红色，否则，取消背景颜色 -->
@@ -34,7 +33,6 @@
         add(e, n) {
           this.count += n
           console.log(e)
-
           // 判断 this.count 的值是否为偶数
           if (this.count % 2 === 0) {
             // 偶数
