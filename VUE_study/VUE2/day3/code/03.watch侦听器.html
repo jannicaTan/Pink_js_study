@@ -14,7 +14,8 @@
   </div>
 
   <script src="./lib/vue-2.6.12.js"></script>
-  <script src="./lib/jquery-v3.6.0.js"></script>
+  <!-- <script src="./lib/jquery-v3.6.0.js"></script> -->
+  <script src="./lib/axios.js"></script>
 
   <script>
     const vm = new Vue({
@@ -26,12 +27,16 @@
       watch: {
         // 侦听器本质上是一个函数，要监视哪个数据的变化，就把数据名作为方法名即可
         // 新值在前，旧值在后
-        username(newVal) {
+        async username(newVal) {
           if (newVal === '') return
           // 1. 调用 jQuery 中的 Ajax 发起请求，判断 newVal 是否被占用！！！
-          $.get('https://www.escook.cn/api/finduser/' + newVal, function (result) {
-            console.log(result)
-          })
+          const {
+            data: res
+          } = await axios.get('https://www.escook.cn/api/finduser/' + newVal)
+          console.log(res)
+          // $.get('https://www.escook.cn/api/finduser/' + newVal, function (result) {
+          //   console.log(result)
+          // })
         }
       }
     })
