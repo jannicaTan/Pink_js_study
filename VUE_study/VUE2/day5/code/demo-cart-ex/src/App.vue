@@ -1,9 +1,9 @@
 <template>
   <div class="app-container">
     <Header title="购物车"></Header>
-    <h1>App 根组件</h1>
+    <!-- <h1>App 根组件</h1> -->
     <!-- 3-2利用v-for来进行循环 -->
-    <!-- 19-4 父组件接收状态改变的值 -->
+    <!-- 19-4 父组件接收状态改变的值,注意 @事件名='方法名‘-->
     <Goods
       v-for="item in list"
       :key="item.id"
@@ -14,6 +14,8 @@
       :state="item.goods_state"
       @state-change="getNewState"
     ></Goods>
+    <!-- 21-6 在父组件中添加子组件的props属性并绑定父组件的属性 -->
+    <Footer :isfull="fullState" @full-change="getFullState"></Footer>
   </div>
 </template>
 
@@ -24,10 +26,12 @@ import axios from "axios";
 import Header from "@/components/Header/Header";
 // 3-1 导入goods
 import Goods from "@/components/Goods/Goods";
+import Footer from "@/components/Footer/Footer";
 export default {
   components: {
     Header,
     Goods,
+    Footer,
   },
   data() {
     return {
@@ -52,9 +56,27 @@ export default {
         this.list = res.list;
       }
     },
-    getNewState(e){
-
-    }
+    // 19-6接受子组件传递过来的数据:e={id:,value}
+    getNewState(e) {
+      this.list.some((item) => {
+        if (item.id === e.id) {
+          item.goods_state = e.value;
+          return true;
+        }
+      });
+    },
+    getFullState(val) {
+      console.log('success')
+      this.list.forEach(item => (item.goods_state = val));
+    },
+  },
+  // 21-1为footer设定计算属性：因为这样能根据状态实时改变
+  computed: {
+    fullState() {
+      // 利用array.every()验证状态
+      // 21-2 父向子传值
+      return this.list.every((item) => item.goods_state);
+    },
   },
 };
 </script>

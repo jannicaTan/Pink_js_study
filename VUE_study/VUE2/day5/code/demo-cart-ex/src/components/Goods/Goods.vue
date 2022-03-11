@@ -6,14 +6,16 @@
         <!-- 复选框 -->
         <!-- <input type="checkbox" class="custom-control-input" id="cb1" :checked="true" /> -->
         <!-- 19-1 在子组件中监听复选框的勾选状态，绑定事件 -->
+        <!-- 20-1 关于id的修改：点击图片也可以更改状态
+                  问题所在：点击第三张图片但是修改为默认的id商品 -->
         <input
           type="checkbox"
           @change="stateChange"
           class="custom-control-input"
-          id="cb1"
+          :id="'cb'+id"
           :checked="state"
         />
-        <label class="custom-control-label" for="cb1">
+        <label class="custom-control-label" :for="'cb'+id">
           <!-- 商品的缩略图 -->
           <!-- 4-6 修改缩略图 -->
           <img :src="pic" alt="" />
@@ -67,9 +69,10 @@ export default {
     // 只要复选框状态改变必然触发
     stateChange(e) {
       const newState = e.target.checked;
-      console.log(newState);
-      // this.$emit('stateChange',{id,value})
+      // 19-3 触发自定义事件
+      this.$emit('state-change',{id:this.id,value:newState })
     },
+
   },
 };
 </script>
