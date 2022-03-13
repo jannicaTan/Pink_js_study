@@ -16,7 +16,7 @@
     <!-- 中间的合计 -->
     <div>
       <span>合计：</span>
-      <span class="total-price">￥{{ 0 }}</span>
+      <span class="total-price">￥{{ amount }}</span>
     </div>
 
     <!-- 结算按钮 -->
@@ -33,6 +33,10 @@ export default {
     isfull: {
       type: Boolean,
       default: false,
+    },
+    amount: {
+      type: Number,
+      default: 0,
     },
   },
   // 23-1 全选状态绑定：子向父传值

@@ -15,7 +15,11 @@
       @state-change="getNewState"
     ></Goods>
     <!-- 21-6 在父组件中添加子组件的props属性并绑定父组件的属性 -->
-    <Footer :isfull="fullState" @full-change="getFullState"></Footer>
+    <Footer
+      :isfull="fullState"
+      :amount="amt"
+      @full-change="getFullState"
+    ></Footer>
   </div>
 </template>
 
@@ -66,8 +70,8 @@ export default {
       });
     },
     getFullState(val) {
-      console.log('success')
-      this.list.forEach(item => (item.goods_state = val));
+      console.log("success");
+      this.list.forEach((item) => (item.goods_state = val));
     },
   },
   // 21-1为footer设定计算属性：因为这样能根据状态实时改变
@@ -76,6 +80,16 @@ export default {
       // 利用array.every()验证状态
       // 21-2 父向子传值
       return this.list.every((item) => item.goods_state);
+    },
+    // 24:总价格的计算：1-先在计算属性中计算 2-在子组件中定义props 属性 3-父组件对应传递给子组件属性
+    // 24-1 amt:先filter，再reduce
+    amt() {
+      return this.list
+        .filter((item) => item.goods_state)
+        .reduce(
+          // 初始值为0
+          (total, item) => (total += item.goods_price * item.goods_count),0
+        );
     },
   },
 };
