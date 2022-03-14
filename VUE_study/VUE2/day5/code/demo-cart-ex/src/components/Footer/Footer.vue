@@ -21,7 +21,7 @@
 
     <!-- 结算按钮 -->
     <button type="button" class="btn btn-primary btn-settle">
-      结算（{{ 0 }}）
+      结算（{{ acount }}）
     </button>
   </div>
 </template>
@@ -38,6 +38,10 @@ export default {
       type: Number,
       default: 0,
     },
+    acount:{
+      type:Number,
+      default:0
+    }
   },
   // 23-1 全选状态绑定：子向父传值
   // 1-@change拿到当前状态 2-通过$emit传递给父组件 3-父组件监听到此状态

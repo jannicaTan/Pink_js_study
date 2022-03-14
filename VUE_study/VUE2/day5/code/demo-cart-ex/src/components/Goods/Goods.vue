@@ -12,10 +12,10 @@
           type="checkbox"
           @change="stateChange"
           class="custom-control-input"
-          :id="'cb'+id"
+          :id="'cb' + id"
           :checked="state"
         />
-        <label class="custom-control-label" :for="'cb'+id">
+        <label class="custom-control-label" :for="'cb' + id">
           <!-- 商品的缩略图 -->
           <!-- 4-6 修改缩略图 -->
           <img :src="pic" alt="" />
@@ -30,13 +30,18 @@
         <!-- 商品价格 -->
         <span class="goods-price">￥{{ price }}</span>
         <!-- 商品的数量 -->
+        <Counter :num="count" :id="id"></Counter>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Counter from "@/components/Counter/Counter";
 export default {
+  components: {
+    Counter,
+  },
   // 4-3将标题等信息进行传值渲染
   props: {
     // 19-1绑定id
@@ -63,6 +68,10 @@ export default {
       default: true,
       type: Boolean,
     },
+    count:{
+      default:true,
+      type:Number
+    }
   },
   // 19-3 使用$emit把状态传给父组件
   methods: {
@@ -70,9 +79,8 @@ export default {
     stateChange(e) {
       const newState = e.target.checked;
       // 19-3 触发自定义事件
-      this.$emit('state-change',{id:this.id,value:newState })
+      this.$emit("state-change", { id: this.id, value: newState });
     },
-
   },
 };
 </script>

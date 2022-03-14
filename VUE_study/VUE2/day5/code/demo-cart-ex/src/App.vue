@@ -12,12 +12,14 @@
       :pic="item.goods_img"
       :price="item.goods_price"
       :state="item.goods_state"
+      :count="item.goods_count"
       @state-change="getNewState"
     ></Goods>
     <!-- 21-6 在父组件中添加子组件的props属性并绑定父组件的属性 -->
     <Footer
       :isfull="fullState"
       :amount="amt"
+      :acount="totalCount"
       @full-change="getFullState"
     ></Footer>
   </div>
@@ -31,6 +33,7 @@ import Header from "@/components/Header/Header";
 // 3-1 导入goods
 import Goods from "@/components/Goods/Goods";
 import Footer from "@/components/Footer/Footer";
+import bus from "@/components/eventBus.js";
 export default {
   components: {
     Header,
@@ -47,6 +50,15 @@ export default {
   created() {
     // 2-4 利用this调用请求数据的方法
     this.initCartList();
+    bus.$on("share", (val) => {
+      this.list.some((item) => {
+        if (item.id === val.id) {
+          item.goods_count = val.value;
+          return true;
+        }
+      });
+      // console.log(val)
+    });
   },
   methods: {
     // 2-2封装方法
@@ -88,8 +100,15 @@ export default {
         .filter((item) => item.goods_state)
         .reduce(
           // 初始值为0
-          (total, item) => (total += item.goods_price * item.goods_count),0
+          (total, item) => (total += item.goods_price * item.goods_count),
+          0
         );
+    },
+    // 结算
+    totalCount() {
+      return this.list
+        .filter((item) => item.goods_state)
+        .reduce((t, item) => (t += item.goods_count), 0);
     },
   },
 };
