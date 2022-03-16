@@ -13,7 +13,8 @@
 
       <template #content="{ msg, user }">
         <div>
-          <p>啊，大海，全是水。</p>
+          <p>啊，大海，
+            全是水。</p>
           <p>啊，蜈蚣，全是腿。</p>
           <p>啊，辣椒，净辣嘴。</p>
           <p>{{ msg }}</p>
@@ -28,7 +29,7 @@
 
     <hr />
 
-    <div class="box" style="display: none;">
+    <div class="box" style="display: none">
       <!-- 渲染 Left 组件和 Right 组件 -->
       <Left>
         <!-- 默认情况下，在使用组件的时候，提供的内容都会被填充到名字为 default 的插槽之中 -->
@@ -46,18 +47,18 @@
 </template>
 
 <script>
-import Left from '@/components/Left.vue'
-import Article from '@/components/Article.vue'
+import Left from "@/components/Left.vue";
+import Article from "@/components/Article.vue";
 
 export default {
   data() {
     return {
-      color: 'blue'
-    }
+      color: "blue",
+    };
   },
   components: {
     Left,
-    Article
+    Article,
   },
   // 私有自定义指令的节点
   directives: {
@@ -76,10 +77,10 @@ export default {
       }
     } */
     color(el, binding) {
-      el.style.color = binding.value
-    }
-  }
-}
+      el.style.color = binding.value;
+    },
+  },
+};
 </script>
 
 <style lang="less">
