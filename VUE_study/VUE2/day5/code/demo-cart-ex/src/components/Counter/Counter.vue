@@ -3,11 +3,14 @@
     class="number-container d-flex justify-content-center align-items-center"
   >
     <!-- 减 1 的按钮 -->
-    <button type="button" class="btn btn-light btn-sm" @click="sub()">-</button>
+    <button type="button" class="btn btn-light btn-sm" @click="sub">-</button>
     <!-- 购买的数量 -->
     <span class="number-box">{{ num }}</span>
     <!-- 加 1 的按钮 -->
-    <button type="button" class="btn btn-light btn-sm" @click="add()" :id="id">
+    <!-- <button type="button" class="btn btn-light btn-sm" @click="add" :id='id'>
+      +
+    </button> -->
+    <button type="button" class="btn btn-light btn-sm" @click="add">
       +
     </button>
   </div>
@@ -17,10 +20,10 @@
 import bus from "@/components/eventBus.js";
 export default {
   props: {
-    id: {
-      type: Number,
-      required: true,
-    },
+    // id: {
+    //   type: Number,
+    //   required: true,
+    // },
     num: {
       default: 1,
       type: Number,
@@ -28,21 +31,24 @@ export default {
   },
   methods: {
     add() {
-      const obj = {
-        id: this.id,
-        value: this.num + 1,
-      };
-      bus.$emit("share", obj);
+      // const obj = {
+      //   id: this.id,
+      //   value: this.num + 1,
+      // };
+      // bus.$emit("share", obj);
+      this.$emit("num-change", this.num + 1);
     },
     sub() {
-      const obj = {
-        id: this.id,
-        value: this.num - 1,
-      };
-      if(obj.value>=1){
-        bus.$emit("share", obj);
+      // const obj = {
+      //   id: this.id,
+      //   value: this.num - 1,
+      // };
+      // if(obj.value>=1){
+      //   bus.$emit("share", obj);
+      // }
+      if (this.num >1) {
+        this.$emit("num-change", this.num - 1);
       }
-      
     },
   },
 };

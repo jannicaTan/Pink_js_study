@@ -14,7 +14,9 @@
       :state="item.goods_state"
       :count="item.goods_count"
       @state-change="getNewState"
-    ></Goods>
+    >
+    <Counter :num='item.goods_count' @num-change='getNumChange(item,$event)'></Counter>
+    </Goods>
     <!-- 21-6 在父组件中添加子组件的props属性并绑定父组件的属性 -->
     <Footer
       :isfull="fullState"
@@ -33,12 +35,14 @@ import Header from "@/components/Header/Header";
 // 3-1 导入goods
 import Goods from "@/components/Goods/Goods";
 import Footer from "@/components/Footer/Footer";
-import bus from "@/components/eventBus.js";
+// import bus from "@/components/eventBus.js";
+import Counter from '@/components/Counter/Counter'
 export default {
   components: {
     Header,
     Goods,
     Footer,
+    Counter
   },
   data() {
     return {
@@ -50,15 +54,16 @@ export default {
   created() {
     // 2-4 利用this调用请求数据的方法
     this.initCartList();
-    bus.$on("share", (val) => {
-      this.list.some((item) => {
-        if (item.id === val.id) {
-          item.goods_count = val.value;
-          return true;
-        }
-      });
-      // console.log(val)
-    });
+    // 关于用eventbus传值进行count的计算
+    // bus.$on("share", (val) => {
+    //   this.list.some((item) => {
+    //     if (item.id === val.id) {
+    //       item.goods_count = val.value;
+    //       return true;
+    //     }
+    //   });
+    //   // console.log(val)
+    // });
   },
   methods: {
     // 2-2封装方法
@@ -85,6 +90,9 @@ export default {
       console.log("success");
       this.list.forEach((item) => (item.goods_state = val));
     },
+    getNumChange(item,e){
+      item.goods_count=e
+    }
   },
   // 21-1为footer设定计算属性：因为这样能根据状态实时改变
   computed: {

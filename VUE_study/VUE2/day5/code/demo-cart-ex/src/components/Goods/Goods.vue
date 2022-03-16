@@ -30,7 +30,9 @@
         <!-- 商品价格 -->
         <span class="goods-price">￥{{ price }}</span>
         <!-- 商品的数量 -->
-        <Counter :num="count" :id="id"></Counter>
+        <!-- <Counter :num="count" :id="id"></Counter> -->
+        <!-- 进行优化 -->
+        <slot></slot>
       </div>
     </div>
   </div>
@@ -68,10 +70,6 @@ export default {
       default: true,
       type: Boolean,
     },
-    count:{
-      default:true,
-      type:Number
-    }
   },
   // 19-3 使用$emit把状态传给父组件
   methods: {
