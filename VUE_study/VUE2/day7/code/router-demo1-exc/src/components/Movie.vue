@@ -1,6 +1,10 @@
 <template>
   <div class="movie-container">
     <h3>Movie 组件</h3>
+     <router-link to='/movie/1'>洛基</router-link>
+    <router-link to='/movie/2'>妇联</router-link>
+    <hr />
+    <router-view></router-view>
   </div>
 </template>
 
