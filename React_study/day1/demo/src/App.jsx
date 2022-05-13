@@ -1,5 +1,5 @@
 import React from "react";
-class App extends React.Component{
+class App2 extends React.Component{
   // 声明周期（render)
   render(){
     return(
@@ -7,4 +7,5 @@ class App extends React.Component{
     )
   }
 }
-export default App;
+export default App2;
+

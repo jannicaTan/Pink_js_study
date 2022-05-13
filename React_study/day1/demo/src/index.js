@@ -1,18 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from './App'
-/*
-ReactDOM.render(参数1，参数2)
-参数1 是JSX语法的标签/组件
-参数2 是要把参数1这个标签渲染到的位置
-*/
-ReactDOM.render(
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import AppState from "./AppState";
+import AppAdd from "./AppAdd";
+import AppArr from "./AppArr";
+// React18
+// 为提供的创建一个 React 根container并返回根。
+const root = createRoot(document.getElementById("root"));
+// 根可用于将 React 元素渲染到 DOM 中
+root.render(
   <>
-    <h1>
-      hello world
-    </h1>
-    <App></App>
+  <App />
+  <AppState></AppState>
+  <p>--------Add---------</p>
+  <AppAdd></AppAdd>
+  <AppArr></AppArr>
   </>
-  ,
-  document.getElementById('root')
-)
+);
