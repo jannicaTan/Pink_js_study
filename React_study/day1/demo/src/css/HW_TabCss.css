@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+
+.banner {
+  width: 500px;
+  height: 300px;
+  margin: 100px auto;
+  border: 1px solid #000;
+}
+
+ul {
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+ul li {
+  height: 60px;
+  width: 30%;
+  background: lightblue;
+}
+
+ul li.active {
+  background: darkblue;
+  color: #fff;
+}
+
+ol li {
+  height: 240px;
+  background: darkblue;
+  text-align: center;
+  line-height: 240px;
+  color: #fff;
+  display: none;
+}
+
+ol li.active {
+  display: block;
+}

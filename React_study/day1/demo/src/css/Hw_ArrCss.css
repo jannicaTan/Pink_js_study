@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+
+.banner {
+  width: 400px;
+  height: 160px;
+  margin: 100px auto;
+  border: 1px solid #000;
+}
+
+.column {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titleIcon {
+  color: orange;
+  border: 1px solid orange;
+  padding: 1px;
+}
