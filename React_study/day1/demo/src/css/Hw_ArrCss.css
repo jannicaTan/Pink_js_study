@@ -6,10 +6,11 @@
 }
 
 .banner {
-  width: 400px;
+  width: 500px;
   height: 160px;
   margin: 100px auto;
   border: 1px solid #000;
+  font-size: 16px;
 }
 
 .column {
