@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import App from './App';
+// import FtoS from './FtoS';
+// import StoF from './StoF';
+// import Context from './Context';
+// import MountLive from './MountLive';
+// import UpdateLive from './UpdateLive';
+import Router from './routers'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+  {/* <App></App>
+  <p>------f to s------</p>
+  <FtoS></FtoS>
+  <p>------s to f------</p>
+  <StoF></StoF> */}
+  {/* <Context></Context>
+  <p>----------挂载-----</p>
+  <MountLive></MountLive>
+  <p>----------挂载-----</p>
+  <UpdateLive></UpdateLive> */}
+  <Router></Router>
+  </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
