@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function A(name, age) {
+      this.name = name;
+      this.age = age;
+      this.hobby = function (...params) {
+        console.log('name:', this.name, ',age:', this.age, 'params:', ...params)
+      }
+    }
+    const Aa = new A('haha', 18)
+    // 手写call
+    // Function.prototype.myCall = function (context, ...args) {
+    //   context = context ? context : window
+    //   context.fn = this
+    //   var result = context.fn(...args)
+    //   delete context.fn
+    //   return result
+    // }
+    // 手写apply
+    // Function.prototype.myApply = function (context, args) {
+    //   context = context ? context : window
+    //   context.fn = this
+    //   var result = context.fn(...args)
+    //   delete context.fn
+    //   return result
+    // }
+    // 手写bind
+    Function.prototype.myBind = function (context, ...args) {
+      const fn = this
+      args = args ? args : window
+      return function newFn(...newFnArgs) {
+        // 返回新的函数,要考虑到使用new去调用,并且new的优先级比较高,所以需要判断new的调用
+        // if (this instanceof newFn) {
+        //   return new fn(...args, ...newFnArgs)
+        // }
+        return fn.apply(context, [...args, ...newFnArgs])
+      }
+    }
+    // 改变this指向
+    // Aa.hobby.call({
+    //   name: 'feifei',
+    //   age: 28
+    // })
+
+    // Aa.hobby.myCall({
+    //   name: 'feifei',
+    //   age: 28
+    // }, 1, 3, 4)
+    // Aa.hobby.myApply({
+    //   name: 'huhu',
+    //   age: 9
+    // }, [1, 2, 3])
+    Aa.hobby.myBind({
+      name: 'feifei',
+      age: 28
+    }, 1, 3, 4)()
+  </script>
+</body>
+
+</html>
