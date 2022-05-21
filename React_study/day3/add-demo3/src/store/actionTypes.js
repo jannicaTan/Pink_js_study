@@ -1,0 +1,1 @@
+export const CLICK_CHANGE='click_change'
