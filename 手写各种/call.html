@@ -19,11 +19,17 @@
     }
     const Aa = new A('haha', 18)
     // 手写call
+    // 思路：给函数原型上添加方法，
     // Function.prototype.myCall = function (context, ...args) {
+    // 1.判断上下文类型 如果是undefined或者 null 指向window
     //   context = context ? context : window
+    // 2.把函数的this 指向context这个上下文
     //   context.fn = this
+    // 3.立即执行一次
     //   var result = context.fn(...args)
+    // 4.删除这个属性
     //   delete context.fn
+    // 5.把函数的返回值赋值返回
     //   return result
     // }
     // 手写apply
